@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reader.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/12 13:44:37 by yechen            #+#    #+#             */
+/*   Updated: 2018/05/12 15:37:05 by yechen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
 void	max_size(char *str, t_all *data)
@@ -19,7 +31,6 @@ void	max_size(char *str, t_all *data)
 void	reader(char *str, t_all *data)
 {
 	char	*line;
-	char	**split;
 
 	max_size(str, data);
 	data->y = 0;
@@ -28,15 +39,17 @@ void	reader(char *str, t_all *data)
 	{
 		if ((ft_countword(line)) >= data->max_x)
 		{
-			split = ft_strsplit(line, ' ');
-			data->x = 0;
+			data->split = ft_strsplit(line, ' ');
+			data->x = -1;
 			while (data->x < data->max_x)
 			{
-				data->map[data->y][data->x] = ft_atoi(split[data->x]);
-					data->x++;
+				data->map[data->y][data->x] = ft_atoi(data->split[data->x]);
+				data->x++;
 			}
-			ft_free2d(split);
+			ft_free2d(data->split);
 			data->y++;
+			if (data->max_x <= 1)
+				error("map too small");
 		}
 		else
 			error("Uneven Map");

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/12 13:43:46 by yechen            #+#    #+#             */
+/*   Updated: 2018/05/12 13:50:48 by yechen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
 void		draw(t_all *data)
@@ -28,7 +40,7 @@ void		wall_color(t_all *data)
 	if (data->side == 0 && data->raydir_x < 0)
 		SDL_SetRenderDrawColor(data->renderer, 0, 255, 0, 255);
 	if (data->side == 1 && data->raydir_y < 0)
-        SDL_SetRenderDrawColor(data->renderer, 255, 0, 255, 255);
+		SDL_SetRenderDrawColor(data->renderer, 255, 0, 255, 255);
 	while (data->y < data->draw_end)
 	{
 		SDL_RenderDrawPoint(data->renderer, data->x, data->y);

@@ -1,5 +1,17 @@
-#ifndef WOLF3D_H
-# define WOLF3D_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wolf.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/12 13:44:48 by yechen            #+#    #+#             */
+/*   Updated: 2018/05/12 15:15:19 by yechen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WOLF_H
+# define WOLF_H
 
 # include <SDL2/SDL.h>
 # include "libft/libft.h"
@@ -13,6 +25,7 @@ typedef struct		s_all
 	int				x;
 	int				y;
 	int				fd;
+	char			**split;
 	double			pos_x;
 	double			pos_y;
 	double			dir_x;
@@ -55,13 +68,14 @@ void				error(char *str);
 void				max_size(char *str, t_all *data);
 void				map_alloc(char *str, t_all *data);
 void				reader(char *str, t_all *data);
-void    			initialize_variable(t_all *data);
+void				initialize_variable(t_all *data);
 void				initialize_sdl(t_all *data);
 void				raycasting(t_all *data);
 void				side_dist(t_all *data);
 void				dda(t_all *data);
 void				draw(t_all *data);
 void				wall_color(t_all *data);
+void				initialize_movement(t_all *data);
 void				key_movements(t_all *data);
 
 #endif

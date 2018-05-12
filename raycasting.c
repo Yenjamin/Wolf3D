@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/12 13:44:24 by yechen            #+#    #+#             */
+/*   Updated: 2018/05/12 13:55:07 by yechen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
 void		dda(t_all *data)
@@ -19,7 +31,7 @@ void		dda(t_all *data)
 		if (data->map[data->map_x][data->map_y] > 0)
 			data->hit = 1;
 	}
-    draw(data);
+	draw(data);
 }
 
 void		side_dist(t_all *data)
@@ -32,17 +44,20 @@ void		side_dist(t_all *data)
 	else
 	{
 		data->step_x = 1;
-		data->sidedist_x = (data->map_x + 1.0 - data->pos_x) * data->deltadist_x;
+		data->sidedist_x = (data->map_x + 1.0 - data->pos_x)
+			* data->deltadist_x;
 	}
 	if (data->raydir_y < 0)
 	{
 		data->step_y = -1;
-		data->sidedist_y = (data->pos_y - data->map_y) * data->deltadist_y;
+		data->sidedist_y = (data->pos_y - data->map_y)
+			* data->deltadist_y;
 	}
 	else
 	{
 		data->step_y = 1;
-		data->sidedist_y = (data->map_y + 1.0 - data->pos_y) * data->deltadist_y;
+		data->sidedist_y = (data->map_y + 1.0 - data->pos_y)
+			* data->deltadist_y;
 	}
 	dda(data);
 }
@@ -58,6 +73,6 @@ void		raycasting(t_all *data)
 			(data->raydir_x * data->raydir_x));
 	data->deltadist_y = sqrt(1 + (data->raydir_x * data->raydir_x) /
 			(data->raydir_y * data->raydir_y));
-    data->hit = 0;
-    side_dist(data);
+	data->hit = 0;
+	side_dist(data);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/12 13:43:59 by yechen            #+#    #+#             */
+/*   Updated: 2018/05/12 15:26:28 by yechen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
 void	error(char *str)
@@ -6,7 +18,7 @@ void	error(char *str)
 	exit(0);
 }
 
-int			main(int ac, char *av[])
+int		main(int ac, char *av[])
 {
 	t_all data;
 
@@ -25,11 +37,12 @@ int			main(int ac, char *av[])
 					raycasting(&data);
 				key_movements(&data);
 			}
+			ft_free2dn(data.map, data.max_x);
 			SDL_DestroyWindow(data.window);
 			SDL_Quit();
 		}
 	}
 	else
-		error("more than one argument was given");
+		error("no or more than one argument was given");
 	return (0);
 }

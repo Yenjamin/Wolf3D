@@ -6,7 +6,7 @@
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 13:44:37 by yechen            #+#    #+#             */
-/*   Updated: 2018/05/12 15:41:26 by yechen           ###   ########.fr       */
+/*   Updated: 2018/05/13 11:32:35 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	max_size(char *str, t_all *data)
 	while (get_next_line(fd, &line) > 0)
 		data->max_y++;
 	close(fd);
+	if (data->max_x <= 1 || data->max_y <= 1)
+		error("map too small");
 	map_alloc(str, data);
 }
 
@@ -45,8 +47,6 @@ void	reader(char *str, t_all *data)
 				data->map[data->y][data->x] = ft_atoi(data->split[data->x]);
 			ft_free2d(data->split);
 			data->y++;
-			if (data->max_x <= 1)
-				error("map too small");
 		}
 		else
 			error("Uneven Map");

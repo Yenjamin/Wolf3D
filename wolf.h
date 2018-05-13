@@ -6,7 +6,7 @@
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 13:44:48 by yechen            #+#    #+#             */
-/*   Updated: 2018/05/12 15:15:19 by yechen           ###   ########.fr       */
+/*   Updated: 2018/05/13 09:16:28 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,9 @@ void				draw(t_all *data);
 void				wall_color(t_all *data);
 void				initialize_movement(t_all *data);
 void				key_movements(t_all *data);
+void				move_left(t_all *data);
+void				move_right(t_all *data);
+void				move_up(t_all *data);
+void				move_down(t_all *data);
 
 #endif

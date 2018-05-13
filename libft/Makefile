@@ -66,6 +66,7 @@ SRC = ft_abs.c\
 	  ft_realloc.c\
 	  ft_countword.c\
 	  ft_free2d.c\
+	  ft_free2dn.c\
 
 INCLUDES = -I ./includes/
 

@@ -6,7 +6,7 @@
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 13:43:02 by yechen            #+#    #+#             */
-/*   Updated: 2018/05/12 14:08:16 by yechen           ###   ########.fr       */
+/*   Updated: 2018/05/13 09:14:04 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	initialize_sdl(t_all *data)
 
 void	initialize_variable(t_all *data)
 {
-	data->pos_x = data->max_x / 2;
-	data->pos_y = data->max_y / 2;
+	data->pos_x = 3;
+	data->pos_y = 4;
 	data->dir_x = -1;
 	data->dir_y = 0;
 	data->plane_x = 0;

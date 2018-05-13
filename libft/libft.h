@@ -6,7 +6,7 @@
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 17:49:42 by yechen            #+#    #+#             */
-/*   Updated: 2018/01/15 13:36:19 by yechen           ###   ########.fr       */
+/*   Updated: 2018/05/12 14:58:43 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ int				ft_islower(int c);
 void			*ft_realloc(void *t, size_t size);
 int				ft_countword(char const *s);
 void			ft_free2d(char **arr);
+void			ft_free2dn(double **arr, int max_x);
 
 #endif

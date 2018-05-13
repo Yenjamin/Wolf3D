@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_free2dn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/30 15:11:23 by yechen            #+#    #+#             */
-/*   Updated: 2018/05/12 15:00:35 by yechen           ###   ########.fr       */
+/*   Created: 2018/05/12 14:48:44 by yechen            #+#    #+#             */
+/*   Updated: 2018/05/12 14:58:14 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_free2dn(double **arr, int max_x)
 {
-	unsigned long	c;
-	int				d;
-	int				i;
-	unsigned long	t;
+	int		i;
 
-	c = 0;
 	i = 0;
-	d = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||
-			str[i] == '\f' || str[i] == '\v' || str[i] == '\r')
-		i++;
-	if (str[i] == '-')
-		d = -1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (i >= max_x)
 	{
-		t = c;
-		c = c * 10 + (str[i] - '0');
+		free(arr[i]);
 		i++;
-		if (t > c)
-			return (d == -1 ? 0 : -1);
 	}
-	c = c * d;
-	return (c);
+	free(arr);
 }

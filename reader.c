@@ -6,7 +6,7 @@
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 13:44:37 by yechen            #+#    #+#             */
-/*   Updated: 2018/05/12 15:37:05 by yechen           ###   ########.fr       */
+/*   Updated: 2018/05/12 15:41:26 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ void	reader(char *str, t_all *data)
 		{
 			data->split = ft_strsplit(line, ' ');
 			data->x = -1;
-			while (data->x < data->max_x)
-			{
+			while (++data->x < data->max_x)
 				data->map[data->y][data->x] = ft_atoi(data->split[data->x]);
-				data->x++;
-			}
 			ft_free2d(data->split);
 			data->y++;
 			if (data->max_x <= 1)
@@ -53,6 +50,7 @@ void	reader(char *str, t_all *data)
 		}
 		else
 			error("Uneven Map");
+		free(line);
 	}
 	close(data->fd);
 }
